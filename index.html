@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Durvesh </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #0a192f; --accent: #64ffda; --text-dim: #8892b0; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text-dim); scroll-behavior: smooth; overflow-x: hidden; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        
+        .bg-grid { background-image: radial-gradient(#233554 1px, transparent 1px); background-size: 40px 40px; }
+
+        /* Floating Code Box Animation */
+        .code-viz {
+            position: absolute;
+            right: 8%;
+            top: 25%;
+            width: 320px;
+            background: rgba(17, 34, 64, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            animation: float 6s ease-in-out infinite;
+            z-index: 5;
+        }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+        .scanner {
+            width: 100%; height: 2px; background: var(--accent);
+            box-shadow: 0 0 15px var(--accent);
+            position: absolute; top: 0; left: 0;
+            animation: scan 4s linear infinite; opacity: 0.3;
+        }
+        @keyframes scan { 0% { top: 0%; } 100% { top: 100%; } }
+
+        .project-card { background: #112240; transition: all 0.3s ease; border: 1px solid transparent; }
+        .project-card:hover { transform: translateY(-10px); border-color: var(--accent); }
+        
+        .slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; scrollbar-width: none; }
+        .slider-img { flex: 0 0 100%; scroll-snap-align: start; border-radius: 8px; width: 100%; }
+    </style>
+</head>
+<body class="bg-grid">
+
+    <nav class="fixed top-0 w-full flex justify-between items-center px-8 md:px-16 py-6 bg-[#0a192f]/90 backdrop-blur-md z-50">
+        <div class="flex items-center gap-12">
+            <div class="text-white font-bold text-xl tracking-tighter uppercase">DURVESH<span class="text-[#64ffda]">.</span>PATIL</div>
+            <div class="hidden md:flex gap-8 text-[11px] font-bold text-white/70 uppercase tracking-widest mono">
+                <a href="#home" class="hover:text-[#64ffda] transition">Home</a>
+                <a href="#about" class="hover:text-[#64ffda] transition">About</a>
+                <a href="#experience" class="hover:text-[#64ffda] transition">Experience</a>
+                <a href="#projects" class="hover:text-[#64ffda] transition">Projets</a>  
+                <a href="#contact" class="hover:text-[#64ffda] transition">Contact</a>
+                <a href="cv  durvesh 2025  new.pdf" download class="hover:text-[#64ffda] transition"> Resume</a>      
+        </div> 
+        </div>
+    
+        
+        <div class="flex gap-6 items-center">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=durveshpatil28111@gmail.com" 
+            target="_blank" 
+            class="text-white/70 hover:text-[#64ffda] transition text-xl" 
+            title="Gmail">
+            ✉
+         </a>
+            <a href="https://github.com/dstar211" class="text-white/70 hover:text-[#64ffda] transition" title="GitHub">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/durvesh-patil23" class="text-white/70 hover:text-[#64ffda] transition" title="LinkedIn">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+        </div>
+    </nav>
+
+    <section id="home" class="relative min-h-screen flex items-center px-8 md:px-32 overflow-hidden">
+        <div class="max-w-2xl z-10">
+            <p class="mono text-[#64ffda] mb-5 text-sm tracking-widest uppercase">Data Analyst</p>
+            <h1 class="text-6xl md:text-8xl font-bold text-[#e6f1ff] mb-6 leading-tight">Durvesh Patil<span class="text-[#64ffda]">.</span></h1>
+            <p class="text-lg mb-12 leading-relaxed max-w-lg">I architect data solutions that transform raw numbers into competitive advantages. Specialized in SQL and Power BI dashboards.</p>
+            <a href="#projects" class="inline-block border border-[#64ffda] text-[#64ffda] px-8 py-4 rounded mono text-sm hover:bg-[#64ffda]/10 transition">View Projects</a>
+        </div>
+
+        <div class="hidden lg:block code-viz">
+            <div class="scanner"></div>
+            <div class="mono text-[10px] space-y-2 opacity-80">
+                <p class="text-white">SELECT * FROM experience</p>
+                <p class="text-[#64ffda]">WHERE years = 1 AND impact = 'HIGH';</p>
+                <p class="text-slate-500">// Processing metrics...</p>
+                <div class="h-1.5 w-full bg-[#233554] rounded mt-2"><div class="h-full w-full bg-[#64ffda] animate-pulse"></div></div>
+                <p class="mt-4">Accuracy: 99.2%</p>
+                <p>Status: DATA_DRIVEN</p>
+                <p class="pt-4 border-t border-white/10 opacity-40">01001101 01001111 01010010 01000101</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-32 px-8 md:px-32 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-[#ccd6f6] mb-12 flex items-center gap-4">
+            <span class="mono text-[#64ffda] text-xl">01.</span> About Me
+            <div class="h-[1px] bg-[#233554] flex-grow"></div>
+        </h2>
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <p class="text-lg mb-8 leading-relaxed">I am <span class="text-white font-semibold">Durvesh Patil</span>. I am a results-driven data analyst with hands-on experience in building multi-page Power BI dashboards. I work with DAX, SQL, and Power Query to clean data, create advanced calculations, and deliver meaningful insights that help businesses improve performance.</p>
+                <div class="grid grid-cols-2 gap-2 mono text-sm text-[#64ffda]">
+                    <div>▹ Python </div>
+                    <div>▹ Power BI/DAX</div>
+                    <div>▹ SQL </div>
+                    <div>▹ Excel</div>
+                    <div>▹ AWS</div>
+                    <div>▹ Machine Learning </div>
+                </div>
+            </div>
+            <div class="w-64 h-64 mx-auto">
+                <img src="durvesh.png" alt="Durvesh" class="w-full h-full object-cover rounded-2xl shadow-2xl">
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-32 px-8 md:px-32 max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-[#ccd6f6] mb-12 flex items-center gap-4">
+            <span class="mono text-[#64ffda] text-xl">02.</span> Experience
+            <div class="h-[1px] bg-[#233554] flex-grow"></div>
+        </h2>
+        <div class="border-l-2 border-[#64ffda] pl-8 py-2">
+            <h3 class="text-xl font-bold text-[#ccd6f6]"> Data Analyst Intern <p class="mono text-sm mt-1 uppercase text-[#64ffda]">@ Nedient Technology</p> </h3>
+            <p class="mono text-sm mt-1 uppercase text-[#64ffda]">May 2025 — Nov 2025 </p>
+            <p class="mt-6 text-[#8892b0] leading-relaxed">▹Designed and deployed interactive Power BI dashboards using advanced DAX and Power Query to track sales performance, customer engagement, and operational KPIs; analysed 200K+ records with SQL and Python (Pandas) to generate forecasting datasets and weekly actionable insights. </p>
+            <p class="mt-6 text-[#8892b0] leading-relaxed">▹Automated reporting workflows, saving 4 to 5 hours per week, and collaborated on data modelling, documentation, and process optimisation while ensuring 100% data quality and governance for leadership decision-making.</p>
+        </div>
+    </section>
+
+    <section id="projects" class="py-32 px-8 md:px-32 max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold text-[#ccd6f6] mb-12 flex items-center gap-4">
+            <span class="mono text-[#64ffda] text-xl">03.</span> Projects
+            <div class="h-[1px] bg-[#233554] flex-grow"></div>
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <div onclick="openModal('Sales Report', 'Full sales funnel analysis.', ['SUPERSTORE 1.png', 'SUP.png', 'SUP 3.jpg', 'Sup 4.jpg'])" class="project-card p-8 rounded-lg cursor-pointer flex flex-col justify-between">
+                <div>
+                    <div class="text-[#64ffda] text-3xl mb-6">📊</div>
+                    <h3 class="text-white font-bold text-lg mb-2">  Superstore Product Performance</h3>
+                    <p class="mono text-[10px] text-[#64ffda] uppercase">4 Page Slider</p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-white/5 flex justify-end">
+                    <a href="https://github.com/dstar211/Superstore-Product-Performance-Sales-Analysis-" onclick="event.stopPropagation()" target="_blank" class="text-white/50 hover:text-[#64ffda] transition" title="View Source Code">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                </div>
+            </div>
+    
+            <div onclick="openModal('Inventory report', 'Inventory & risk .', ['supply chain 1 .jpg', 'supply chain 2 .jpg', 'supply chain 3.jpg', ])" class="project-card p-8 rounded-lg cursor-pointer flex flex-col justify-between">
+                <div>
+                    <div class="text-[#64ffda] text-3xl mb-6">📦</div>
+                    <h3 class="text-white font-bold text-lg mb-2">Global Supply Chain </h3>
+                    <p class="mono text-[10px] text-[#64ffda] uppercase">3 Page Slider</p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-white/5 flex justify-end">
+                    <a href="https://github.com/dstar211/Global-Supply-Chain-Inventory-Optimizer" onclick="event.stopPropagation()" target="_blank" class="text-white/50 hover:text-[#64ffda] transition" title="View Source Code">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                </div>
+            </div>
+    
+            <div onclick="openModal('Uber Dashboard', 'Customer trip cost  tracking.', ['uber 1.png', 'uber 2.png', 'uber 3.png', ])" class="project-card p-8 rounded-lg cursor-pointer flex flex-col justify-between">
+                <div>
+                    <div class="text-[#64ffda] text-3xl mb-6">🚗</div>
+                    <h3 class="text-white font-bold text-lg mb-2">Uber Ride Revenue NYC</h3>
+                    <p class="mono text-[10px] text-[#64ffda] uppercase">3 Page Slider</p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-white/5 flex justify-end">
+                    <a href="https://github.com/dstar211/uber-data-analysis" onclick="event.stopPropagation()" target="_blank" class="text-white/50 hover:text-[#64ffda] transition" title="View Source Code">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                </div>
+            </div>
+    
+            <div onclick="openModal('Financial Audit', 'Fraud detection system.', ['ha.png', 'f2.png', 'f3.png', 'f4.png'])" class="project-card p-8 rounded-lg cursor-pointer flex flex-col justify-between">
+                <div>
+                    <div class="text-[#64ffda] text-3xl mb-6">💹</div>
+                    <h3 class="text-white font-bold text-lg mb-2">Finance Hub</h3>
+                    <p class="mono text-[10px] text-[#64ffda] uppercase">4 Page Slider</p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-white/5 flex justify-end">
+                    <a href="https://github.com/your-username/project-4" onclick="event.stopPropagation()" target="_blank" class="text-white/50 hover:text-[#64ffda] transition" title="View Source Code">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                </div>
+            </div>
+    
+        </div>
+
+    </div>
+    </section>
+
+    <div id="modal-overlay" class="fixed inset-0 z-[100] bg-[#0a192f]/98 hidden items-center justify-center p-6 backdrop-blur-md">
+        <div class="bg-[#112240] max-w-5xl w-full max-h-[90vh] overflow-y-auto rounded-2xl border border-white/10 relative p-8 md:p-12 shadow-2xl text-center">
+            <button onclick="closeModal()" class="absolute top-6 right-8 text-4xl text-slate-500 hover:text-[#64ffda]">&times;</button>
+            <h2 id="modal-title" class="text-2xl font-bold text-white mb-6"></h2>
+            
+            <div id="modal-slider" class="slider mb-4 border border-white/5 rounded-lg"></div>
+            
+            <div id="modal-dots" class="flex justify-center gap-2 mb-6"></div>
+            
+            <p id="modal-desc" class="text-lg text-slate-300"></p>
+        </div>
+    </div>
+    <script>
+        function openModal(title, desc, imgs) {
+    document.getElementById('modal-title').innerText = title;
+    document.getElementById('modal-desc').innerText = desc;
+    const slider = document.getElementById('modal-slider');
+    const dotsContainer = document.getElementById('modal-dots');
+    
+    // 1. Generate Images
+    slider.innerHTML = imgs.map(src => `<img src="${src}" class="slider-img" alt="Report Page">`).join('');
+    
+    // 2. Generate Clickable Dots
+    dotsContainer.innerHTML = imgs.map((_, index) => `
+        <button onclick="scrollToPage(${index})" class="h-2 w-2 rounded-full bg-white/20 hover:bg-[#64ffda] transition"></button>
+    `).join('');
+
+    document.getElementById('modal-overlay').classList.remove('hidden');
+    document.getElementById('modal-overlay').classList.add('flex');
+    document.body.style.overflow = 'hidden';
+    slider.scrollLeft = 0;
+}
+
+// 3. Add this helper function to handle the scrolling
+function scrollToPage(index) {
+    const slider = document.getElementById('modal-slider');
+    const width = slider.clientWidth;
+    slider.scrollTo({
+        left: width * index,
+        behavior: 'smooth'
+    });
+}
+
+function closeModal() {
+    document.getElementById('modal-overlay').classList.add('hidden');
+    document.body.style.overflow = 'auto';
+}
+    </script>
+    <section id="contact" class="py-32 px-8 md:px-32 max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-[#ccd6f6] mb-8 flex items-center gap-4 justify-center">
+            <span class="mono text-[#64ffda] text-xl">04.</span> Get In Touch
+        </h2>
+        <p class="text-lg mb-12 leading-relaxed">
+            I'm currently looking for new opportunities as a Data Analyst. Whether you have a question or just want to say hi, my inbox is always open!
+        </p>
+        
+        <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+            <a href="mailto:durveshpatil28111@gmail.com" class="border border-[#64ffda] text-[#64ffda] px-10 py-4 rounded mono text-sm hover:bg-[#64ffda]/10 transition">
+                Say Hello
+            </a>
+            
+            <a href="https://www.linkedin.com/in/durvesh-patil23" target="_blank" class="text-[#8892b0] hover:text-[#64ffda] mono text-sm transition">
+                LinkedIn Profile ↗
+            </a>
+        </div>
+    </section> <footer class="py-10 text-center">
+        <div class="opacity-40 mono text-[11px] tracking-widest uppercase text-[#8892b0]">
+            Designed & Built by Durvesh Patil © 2025
+        </div>
+    </footer>
+
+    <div id="modal-overlay" ...> </div>       
+</body>
+</html>
